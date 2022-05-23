@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<style>
+    *{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+h1{
+    text-align: center;
+    text-decoration: underline;
+}
+h2{
+    color: white;
+    text-align: center;
+}
+.hola{
+    margin: 30px;
+    padding: 20px;
+    color: white;
+    background-color: rgb(216, 0, 119);
+    text-align: center;
+    font-size: 30px;
+    height: 50px;
+}
+.container{
+    margin: 0px 100px 0px 100px;
+    padding: 20px;
+    background-color: rgb(62, 62, 62);
+}
+.center{
+    display: flex;
+    justify-content: center;
+}
+h3{
+    color: white;
+    text-align: center;
+}
+
+button{
+    color: white;
+    width: 100px;
+    margin: 0px 5px 0px 0px;
+    background-color: rgb(255, 0, 123);
+    height: 40px;
+}
+input{
+    text-align: center;
+    height: 30px;
+}
+</style>
+<body>
+    <header>
+        <h1>Form</h1>
+    </header>
+    <section>
+        <div>
+            <div class="container">
+                <h3>DIA FAVORITO</h3>
+                <input type="number" id="numberA">
+                <button id="btn">Calcular</button>
+                <h2>Resultado</h2>
+                <div class="hola" id="salida"></div>
+            </div>
+            <div class="container">
+                <h3>CALCULADORA</h3>
+                <input type="number" id="A">
+                <input type="number" id="B"><br><br>
+                <button id="btna1">+</button>
+                <button id="btna2">-</button>
+                <button id="btna3">x</button>
+                <button id="btna4">/</button>
+                <button id="btna5">^</button>
+                <button id="btna6">sqrt</button>
+                <button id="btna7">sen(a)</button>
+                <button id="btna8">cos(a)</button>
+                <button id="btna9">e^a</button>
+                <h2>Resultado</h2>
+                <div class="hola" id="salida2"></div>
+            </div>
+        </div>
+    </section>
+    <script>
+        var b=document.getElementById("btn");
+        b.addEventListener("click", fdias)
+
+        function fdias(){
+            p=parseInt(document.getElementById("numberA").value)
+            //Vector de días
+            var dias=["Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"];
+            //proceso p-1
+            p--;
+            if (p>=0 && p<7){
+                p="tu dia favorito es: "+dias[p]
+            }
+            else{
+                p="ese dia no existe😳📸"
+            }
+            document.getElementById("salida").innerHTML=p
+        }
+
+        var c=document.getElementById("btna1")
+        var d=document.getElementById("btna2")
+        var e=document.getElementById("btna3")
+        var f=document.getElementById("btna4")
+        var g=document.getElementById("btna5")
+        var h=document.getElementById("btna6")
+        var i=document.getElementById("btna7")
+        var j=document.getElementById("btna8")
+        var k=document.getElementById("btna9")
+        c.addEventListener("click", sum)
+        d.addEventListener("click", res)
+        e.addEventListener("click", mul)
+        f.addEventListener("click", div)
+        g.addEventListener("click", pot)
+        h.addEventListener("click", raiz)
+        i.addEventListener("click", fseno)
+        j.addEventListener("click", fcose)
+        k.addEventListener("click", exp)
+
+        function sum(){
+            a=parseInt(document.getElementById("A").value)
+            b=parseInt(document.getElementById("B").value)
+            document.getElementById("salida2").innerHTML=a+b
+        }
+        function res(){
+            a=parseInt(document.getElementById("A").value)
+            b=parseInt(document.getElementById("B").value)
+            document.getElementById("salida2").innerHTML=a-b
+        }
+        function mul(){
+            a=parseInt(document.getElementById("A").value)
+            b=parseInt(document.getElementById("B").value)
+            document.getElementById("salida2").innerHTML=a*b
+        }
+        function div(){
+            a=parseInt(document.getElementById("A").value)
+            b=parseInt(document.getElementById("B").value)
+            document.getElementById("salida2").innerHTML=a/b
+        }
+        function pot(){
+            a=parseInt(document.getElementById("A").value)
+            b=parseInt(document.getElementById("B").value)
+            document.getElementById("salida2").innerHTML=Math.pow(a, b)
+        }
+        function raiz(){
+            a=parseInt(document.getElementById("A").value)
+            b=parseInt(document.getElementById("B").value)
+            document.getElementById("salida2").innerHTML=Math.sqrt(a)
+        }
+        function fseno(){
+            a=parseInt(document.getElementById("A").value)*(Math.PI/180)
+            b=parseInt(document.getElementById("B").value)
+            document.getElementById("salida2").innerHTML=Math.sin(a)
+        }
+        function fcose(){
+            a=parseInt(document.getElementById("A").value)*(Math.PI/180)
+            b=parseInt(document.getElementById("B").value)
+            document.getElementById("salida2").innerHTML=Math.cos(a)
+        }
+        function exp(){
+            a=parseInt(document.getElementById("A").value)
+            b=parseInt(document.getElementById("B").value)
+            document.getElementById("salida2").innerHTML=Math.exp(a)
+        }
+    </script>
+</body>
+</html>
